@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/menuBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:backgroundTint="@color/white"
+                app:elevation="0dp"
+                app:rippleColor="@color/green1Light"
+                app:srcCompat="@drawable/menu_icon" />
+
+            <TextView
+                android:id="@+id/categoryTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/menuBtn"
+                android:text="@string/incoming"
+                android:textColor="@color/green10"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/refreshMailsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                app:backgroundTint="@color/white"
+                app:elevation="0dp"
+                app:rippleColor="@color/green1Light"
+                app:srcCompat="@drawable/refresh_icon"
+                />
+        </RelativeLayout>
+
+        <!--<LinearLayout
+            android:id="@+id/filtersLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fromFilterBtn"
+                style="@style/filter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/from"
+                android:textColor="@color/green10"
+                app:iconTint="@color/green10" />
+
+            <Button
+                android:id="@+id/toFilterBtn"
+                style="@style/filter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/to" />
+
+            <Button
+                android:id="@+id/dateFilterBtn"
+                style="@style/filter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/date" />
+
+        </LinearLayout>-->
+
+        <TextView
+            android:id="@+id/dataLoadingTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Выполняется загрузка данных..."
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            />
+
+        <ListView
+            android:id="@+id/mailsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:divider="@color/transparent"/>
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mailsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />-->
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/newMailBtn"
+        style="@style/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/plus_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

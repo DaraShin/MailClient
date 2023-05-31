@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/authorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/topicTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authorTextView"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:focusable="auto"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/categoryTV"
+        style="@style/text_vertical_sequence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topicTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/category_block"
+        android:paddingHorizontal="12dp"
+        android:text="@string/incoming"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoryTV"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:focusable="auto"
+        android:includeFontPadding="false"
+        android:maxWidth="280dp"
+        android:maxLines="2"
+        android:text="TextView"
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
+
+    <!--<RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:focusable="auto"
+            android:text="TextView"
+            android:textColor="@color/grey"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/favouritesBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/dateTextView"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/transparent"
+            android:focusable="false"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star_icon" />
+    </RelativeLayout>-->
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/authorTextView"
+        android:layout_alignParentRight="true"
+        android:focusable="auto"
+        android:text="TextView"
+        android:textColor="@color/grey"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/favouritesBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@id/dateTextView"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/transparent"
+        android:focusable="false"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/star_icon" />
+</RelativeLayout>

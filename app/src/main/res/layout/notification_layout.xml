@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false">
+
+    <TextView
+        android:id="@+id/mailSentTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_sent"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="0dp"/>
+
+    <TextView
+        android:id="@+id/authorTextViewNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mailSentTV"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/topicTextViewNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authorTextViewNotification"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:focusable="auto"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textTextViewNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topicTextViewNotification"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:focusable="auto"
+        android:includeFontPadding="false"
+        android:maxWidth="280dp"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textColor="@color/grey"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>

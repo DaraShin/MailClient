@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigationView">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/incoming_item"
+            android:icon="@drawable/incoming_icon"
+            android:title="@string/incoming" />
+        <item
+            android:id="@+id/sent_item"
+            android:icon="@drawable/send_icon"
+            android:title="@string/sent" />
+        <item
+            android:id="@+id/deffered_send_item"
+            android:icon="@drawable/deffered_send_icon"
+            android:title="@string/deffered" />
+        <item
+            android:id="@+id/drafts_item"
+            android:icon="@drawable/draft_icon"
+            android:title="@string/drafts" />
+        <item
+            android:id="@+id/favourites_item"
+            android:icon="@drawable/star_icon"
+            android:title="@string/favourites" />
+        <item
+            android:id="@+id/spam_item"
+            android:icon="@drawable/spam_icon"
+            android:title="@string/spam" />
+    </group>
+
+    <item
+        android:id="@+id/quit_item"
+        android:icon="@drawable/quit_icon"
+        android:title="@string/quit" />
+</menu>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+    <entry key="mail.imap.host">imap.gmail.com</entry>
+    <entry key="mail.imap.port">993</entry>
+    <entry key="mail.imap.auth">true</entry>
+    <entry key="mail.imap.ssl.enable">true</entry>
+    <entry key="mail.imap.ssl.protocols">TLSv1.2</entry>
+</properties>

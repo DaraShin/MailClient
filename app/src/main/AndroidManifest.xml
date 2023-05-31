@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MailClientCourseProject"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".View.Login.LoginActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.MailClientCourseProject.MyNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View.ShowMailsList.ShowMailsListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MailClientCourseProject.MyNoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View.WriteMessageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MailClientCourseProject.MyNoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View.ReadMessageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MailClientCourseProject.MyNoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <receiver android:name=".Model.DeferredSendBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.shinkevich.mailclientcourseproject.SEND_MAIL"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
