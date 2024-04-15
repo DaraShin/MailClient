@@ -2,29 +2,24 @@ package com.shinkevich.mailclientcourseproject.Model;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
-import androidx.work.ListenableWorker;
-
-import com.shinkevich.mailclientcourseproject.Model.Database.MailDao;
-import com.shinkevich.mailclientcourseproject.Model.Database.MailsDatabase;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.DeferredMail;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.Draft;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.IncomingMail;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.SentMail;
 import com.shinkevich.mailclientcourseproject.Model.Database.Entity.SpamMail;
-import com.shinkevich.mailclientcourseproject.R;
+import com.shinkevich.mailclientcourseproject.Model.Database.MailDao;
+import com.shinkevich.mailclientcourseproject.Model.Database.MailsDatabase;
 import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.function.Consumer;
 import java.util.function.LongFunction;
 import java.util.function.Supplier;
@@ -427,6 +422,19 @@ public class Repository {
         return getMailByID(messageUID, mailDao::getDraftMailById);
     }
 
+    public Observable<Mail> getDraftMailByIdForTest(long messageUID) {
+        return Observable.fromCallable(() -> {
+                    List<Draft> mailEntityList = mailDao.getDraftMailById(messageUID);
+                    if (mailEntityList.size() == 0) {
+                        return null;
+                    } else {
+                        Draft mailEntity = mailEntityList.get(0);
+                        return mailEntityToMail(mailEntity);
+                    }
+                })
+                .subscribeOn(Schedulers.io());
+    }
+
 //    public Single<Mail> getFavouriteMailById(long messageUID) {
 //        return getMailByID(messageUID, mailDao::getFavouriteMailById);
 //    }
@@ -552,6 +560,15 @@ public class Repository {
 
     public void clearDB() {
         executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                MailsDatabase.getInstance(context).clearAllTables();
+            }
+        });
+    }
+
+    public Future clearDBForTest() {
+        return executorService.submit(new Runnable() {
             @Override
             public void run() {
                 MailsDatabase.getInstance(context).clearAllTables();
