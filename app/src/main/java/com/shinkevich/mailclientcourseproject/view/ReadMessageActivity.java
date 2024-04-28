@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View;
+package com.shinkevich.mailclientcourseproject.view;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.MailType;
 import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.ViewModel.ReadMessageViewModel;
+import com.shinkevich.mailclientcourseproject.viewmodel.ReadMessageViewModel;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 

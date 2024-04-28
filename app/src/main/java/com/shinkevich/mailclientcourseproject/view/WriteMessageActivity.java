@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View;
+package com.shinkevich.mailclientcourseproject.view;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -20,11 +19,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.DeferredSendBroadcastReceiver;
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
-import com.shinkevich.mailclientcourseproject.Model.Repository;
+import com.shinkevich.mailclientcourseproject.model.AccountManager;
+import com.shinkevich.mailclientcourseproject.model.DeferredSendBroadcastReceiver;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.MailType;
+import com.shinkevich.mailclientcourseproject.model.Repository;
 import com.shinkevich.mailclientcourseproject.R;
 
 import java.util.Calendar;

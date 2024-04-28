@@ -1,14 +1,14 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
-import com.shinkevich.mailclientcourseproject.Model.Database.MailDao;
-import com.shinkevich.mailclientcourseproject.Model.Database.MailsDatabase;
-import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
+import com.shinkevich.mailclientcourseproject.model.database.entity.MailEntity;
+import com.shinkevich.mailclientcourseproject.model.database.MailDao;
+import com.shinkevich.mailclientcourseproject.model.database.MailsDatabase;
+import com.shinkevich.mailclientcourseproject.view.WriteMessageActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.ViewModel;
+package com.shinkevich.mailclientcourseproject.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,10 +8,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
-import com.shinkevich.mailclientcourseproject.Model.Repository;
+import com.shinkevich.mailclientcourseproject.model.AccountManager;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.MailType;
+import com.shinkevich.mailclientcourseproject.model.Repository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model.Database;
+package com.shinkevich.mailclientcourseproject.model.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,8 +6,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.model.database.entity.MailEntity;
+import com.shinkevich.mailclientcourseproject.model.MailType;
 
 import java.util.List;
 

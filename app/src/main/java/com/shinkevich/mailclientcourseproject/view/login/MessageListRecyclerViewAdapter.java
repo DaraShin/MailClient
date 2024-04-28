@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View.Login;
+package com.shinkevich.mailclientcourseproject.view.login;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.shinkevich.mailclientcourseproject.Model.Mail;
+import com.shinkevich.mailclientcourseproject.model.Mail;
 import com.shinkevich.mailclientcourseproject.R;
 
 import java.util.ArrayList;

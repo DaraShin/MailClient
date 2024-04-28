@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.ViewModel;
+package com.shinkevich.mailclientcourseproject.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.Repository;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.Repository;
 
 import io.reactivex.rxjava3.core.Completable;
 

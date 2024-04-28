@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 public enum MailServiceEnum {
         GMAIL,

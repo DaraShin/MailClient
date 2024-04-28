@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 import android.content.Context;
 
@@ -7,8 +7,8 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.View.CommonViewServices;
-import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
+import com.shinkevich.mailclientcourseproject.view.CommonViewServices;
+import com.shinkevich.mailclientcourseproject.view.WriteMessageActivity;
 
 public class SendMailWorker extends Worker {
     private Context context;

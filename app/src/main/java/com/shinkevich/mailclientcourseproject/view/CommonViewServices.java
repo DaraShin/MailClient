@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View;
+package com.shinkevich.mailclientcourseproject.view;
 
 import static kotlin.random.RandomKt.Random;
 
@@ -6,14 +6,13 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.shinkevich.mailclientcourseproject.Model.Mail;
+import com.shinkevich.mailclientcourseproject.model.Mail;
 import com.shinkevich.mailclientcourseproject.R;
 
 import java.text.ParseException;

@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View.ShowMailsList;
+package com.shinkevich.mailclientcourseproject.view.maillist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,14 +20,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.model.AccountManager;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.MailType;
 import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.View.Login.LoginActivity;
-import com.shinkevich.mailclientcourseproject.View.ReadMessageActivity;
-import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
-import com.shinkevich.mailclientcourseproject.ViewModel.ShowMailsListViewModel;
+import com.shinkevich.mailclientcourseproject.view.login.LoginActivity;
+import com.shinkevich.mailclientcourseproject.view.ReadMessageActivity;
+import com.shinkevich.mailclientcourseproject.view.WriteMessageActivity;
+import com.shinkevich.mailclientcourseproject.viewmodel.ShowMailsListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

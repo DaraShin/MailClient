@@ -5,13 +5,13 @@ import android.util.Log;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
-import com.shinkevich.mailclientcourseproject.Model.Database.MailDao;
-import com.shinkevich.mailclientcourseproject.Model.Database.MailsDatabase;
-import com.shinkevich.mailclientcourseproject.Model.MailServiceEnum;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
-import com.shinkevich.mailclientcourseproject.Model.Repository;
+import com.shinkevich.mailclientcourseproject.model.AccountManager;
+import com.shinkevich.mailclientcourseproject.model.database.entity.MailEntity;
+import com.shinkevich.mailclientcourseproject.model.database.MailDao;
+import com.shinkevich.mailclientcourseproject.model.database.MailsDatabase;
+import com.shinkevich.mailclientcourseproject.model.MailServiceEnum;
+import com.shinkevich.mailclientcourseproject.model.MailType;
+import com.shinkevich.mailclientcourseproject.model.Repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

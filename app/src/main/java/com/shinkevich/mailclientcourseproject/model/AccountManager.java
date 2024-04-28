@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

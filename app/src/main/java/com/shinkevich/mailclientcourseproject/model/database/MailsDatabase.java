@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model.Database;
+package com.shinkevich.mailclientcourseproject.model.database;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
+import com.shinkevich.mailclientcourseproject.model.database.entity.MailEntity;
 
 @Database(entities =
         {MailEntity.class},

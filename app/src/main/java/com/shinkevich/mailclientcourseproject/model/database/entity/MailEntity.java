@@ -1,10 +1,10 @@
-package com.shinkevich.mailclientcourseproject.Model.Database.Entity;
+package com.shinkevich.mailclientcourseproject.model.database.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 
-import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.model.MailType;
 
 @Entity(tableName = "mail", primaryKeys = {"mail_id","mail_type"})
 public class MailEntity {

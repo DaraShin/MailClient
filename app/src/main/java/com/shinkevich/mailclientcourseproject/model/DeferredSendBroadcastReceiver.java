@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,10 +11,7 @@ import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
-import com.google.gson.GsonBuilder;
-import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.View.CommonViewServices;
-import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
+import com.shinkevich.mailclientcourseproject.view.WriteMessageActivity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

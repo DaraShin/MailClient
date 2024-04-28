@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.Model;
+package com.shinkevich.mailclientcourseproject.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

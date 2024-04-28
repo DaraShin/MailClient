@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View.Login;
+package com.shinkevich.mailclientcourseproject.view.login;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View.ShowMailsList;
+package com.shinkevich.mailclientcourseproject.view.maillist;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -12,11 +12,11 @@ import android.widget.TextView;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.model.Mail;
+import com.shinkevich.mailclientcourseproject.model.MailType;
 import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.View.CommonViewServices;
-import com.shinkevich.mailclientcourseproject.ViewModel.ShowMailsListViewModel;
+import com.shinkevich.mailclientcourseproject.view.CommonViewServices;
+import com.shinkevich.mailclientcourseproject.viewmodel.ShowMailsListViewModel;
 
 import java.util.ArrayList;
 

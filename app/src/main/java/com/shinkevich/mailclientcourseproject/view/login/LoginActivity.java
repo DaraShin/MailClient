@@ -1,4 +1,4 @@
-package com.shinkevich.mailclientcourseproject.View.Login;
+package com.shinkevich.mailclientcourseproject.view.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.shinkevich.mailclientcourseproject.Model.MailServiceEnum;
-import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.Repository;
+import com.shinkevich.mailclientcourseproject.model.MailServiceEnum;
+import com.shinkevich.mailclientcourseproject.model.AccountManager;
+import com.shinkevich.mailclientcourseproject.model.Repository;
 import com.shinkevich.mailclientcourseproject.R;
-import com.shinkevich.mailclientcourseproject.View.ShowMailsList.ShowMailsListActivity;
+import com.shinkevich.mailclientcourseproject.view.maillist.ShowMailsListActivity;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 
