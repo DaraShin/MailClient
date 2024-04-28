@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mail implements Serializable {
+    private String mailID;
     private long messageUID;
     private String authorEmail;
     private String authorName;
@@ -21,6 +22,10 @@ public class Mail implements Serializable {
     public Mail() {
         isRead = true;
         isInFavourites = false;
+    }
+
+    public String getMailID() {
+        return mailID;
     }
 
     public String getAuthorEmail() {
@@ -57,6 +62,10 @@ public class Mail implements Serializable {
 
     public List<String> getRecipients() {
         return recipients;
+    }
+
+    public void setMailID(String mailID) {
+        this.mailID = mailID;
     }
 
     public void setMessageUID(long messageUID) {

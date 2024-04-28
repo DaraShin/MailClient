@@ -6,7 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.shinkevich.mailclientcourseproject.Model.AccountManager;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.Draft;
+import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
 import com.shinkevich.mailclientcourseproject.Model.Database.MailDao;
 import com.shinkevich.mailclientcourseproject.Model.Database.MailsDatabase;
 import com.shinkevich.mailclientcourseproject.Model.MailServiceEnum;
@@ -109,7 +109,9 @@ public class PerformanceTests {
 
     private void insertTestData() {
         for (int i = 0; i < 100; i++) {
-            mailDao.insertDraftMail(new Draft(i,
+            mailDao.insertMail(new MailEntity(
+                    String.valueOf(i),
+                    i,
                     "Test message author email",
                     "Test message author name",
                     "Test message recipient",
@@ -117,7 +119,8 @@ public class PerformanceTests {
                     "Test message text",
                     "Test message date",
                     true,
-                    false
+                    false,
+                    MailType.DRAFT
             ));
         }
     }
@@ -133,7 +136,7 @@ public class PerformanceTests {
             insertTestDraft();
             long startTime = System.nanoTime();
             final int counter = 1;
-            repository.getDraftMailByIdForTest(0).take(1).observeOn(AndroidSchedulers.mainThread()).blockingSubscribe();
+            repository.getDraftMailByIdForTest("").take(1).observeOn(AndroidSchedulers.mainThread()).blockingSubscribe();
             long iterationTime = System.nanoTime() - startTime;
             Log.d(TAG, "iteration " + i + ": " + iterationTime + " ns");
             if (i > ITERATIONS_TO_DROP) {
@@ -145,7 +148,8 @@ public class PerformanceTests {
     }
 
     private void insertTestDraft() {
-        mailDao.insertDraftMail(new Draft(0,
+        mailDao.insertMail(new MailEntity("0",
+                0,
                 "Test message author email",
                 "Test message author name",
                 "Test message recipient",
@@ -153,11 +157,12 @@ public class PerformanceTests {
                 "Test message text",
                 "Test message date",
                 true,
-                false
+                false,
+                MailType.DRAFT
         ));
     }
 
     private void deleteTestDraft() {
-        mailDao.deleteDraftMail(mailDao.getDraftMailById(0).get(0));
+        mailDao.deleteMail(mailDao.getMailByPK("0",MailType.DRAFT).get(0));
     }
 }

@@ -6,16 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.DeferredMail;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.Draft;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.IncomingMail;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.SentMail;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.SpamMail;
-import com.shinkevich.mailclientcourseproject.Model.Database.Entity.TrashMail;
+import com.shinkevich.mailclientcourseproject.Model.Database.Entity.MailEntity;
 
 @Database(entities =
-        {IncomingMail.class, SentMail.class, Draft.class, TrashMail.class, SpamMail.class, DeferredMail.class},
-        version = 21)
+        {MailEntity.class},
+        version = 22)
 public abstract class MailsDatabase extends RoomDatabase {
     private static MailsDatabase instance;
 

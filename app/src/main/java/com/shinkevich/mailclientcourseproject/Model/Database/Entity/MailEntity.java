@@ -1,10 +1,16 @@
 package com.shinkevich.mailclientcourseproject.Model.Database.Entity;
 
 import androidx.annotation.NonNull;
-import androidx.room.PrimaryKey;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 
+import com.shinkevich.mailclientcourseproject.Model.MailType;
+
+@Entity(tableName = "mail", primaryKeys = {"mail_id","mail_type"})
 public class MailEntity {
-    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "mail_id")
+    private String mailID;
     private long messageUID;
     private String authorEmail;
     private String authorName;
@@ -15,10 +21,12 @@ public class MailEntity {
     private Boolean isRead;
     private Boolean isInFavourites;
     @NonNull
-    private String messageType = "";
+    @ColumnInfo(name = "mail_type")
+    private MailType messageType;
 
 
-    public MailEntity(long messageUID,
+    public MailEntity(String mailID,
+                      long messageUID,
                       String authorEmail,
                       String authorName,
                       String recipientEmail,
@@ -27,7 +35,8 @@ public class MailEntity {
                       String date,
                       Boolean isRead,
                       Boolean isInFavourites,
-                      String messageType) {
+                      MailType messageType) {
+        this.mailID = mailID;
         this.messageUID = messageUID;
         this.authorEmail = authorEmail;
         this.authorName = authorName;
@@ -38,6 +47,10 @@ public class MailEntity {
         this.isRead = isRead;
         this.isInFavourites = isInFavourites;
         this.messageType = messageType;
+    }
+
+    public String getMailID() {
+        return mailID;
     }
 
     public long getMessageUID() {
@@ -112,11 +125,11 @@ public class MailEntity {
         isInFavourites = inFavourites;
     }
 
-    public String getMessageType() {
+    public MailType getMessageType() {
         return messageType;
     }
 
-    public void setMessageType(String messageType) {
+    public void setMessageType(MailType messageType) {
         this.messageType = messageType;
     }
 }

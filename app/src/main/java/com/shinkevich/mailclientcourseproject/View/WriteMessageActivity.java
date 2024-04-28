@@ -57,6 +57,7 @@ public class WriteMessageActivity extends AppCompatActivity {
 
     private boolean isDraft = false;
     private long draftUid = 0;
+    private String draftId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class WriteMessageActivity extends AppCompatActivity {
             Mail draftExtra = (Mail) args.getSerializable(MAIL_TO_EDIT_EXTRA);
             isDraft = true;
             draftUid = draftExtra.getMessageUID();
+            draftId = draftExtra.getMailID();
             configView(draftExtra);
         }
 
@@ -140,6 +142,7 @@ public class WriteMessageActivity extends AppCompatActivity {
                 ProgressDialog[] progressDialog = new ProgressDialog[1];
                 if (isDraft) {
                     Mail draft = getMailFromActivity();
+                    draft.setMailID(draftId);
                     draft.setMessageUID(draftUid);
                     draft.setMailType(MailType.DRAFT);
                     repository.deleteMail(draft).subscribe();

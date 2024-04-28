@@ -1,5 +1,14 @@
 package com.shinkevich.mailclientcourseproject.View.ShowMailsList;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,36 +18,20 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.shinkevich.mailclientcourseproject.Model.AccountManager;
+import com.shinkevich.mailclientcourseproject.Model.Mail;
 import com.shinkevich.mailclientcourseproject.Model.MailType;
+import com.shinkevich.mailclientcourseproject.R;
 import com.shinkevich.mailclientcourseproject.View.Login.LoginActivity;
 import com.shinkevich.mailclientcourseproject.View.ReadMessageActivity;
 import com.shinkevich.mailclientcourseproject.View.WriteMessageActivity;
-import com.shinkevich.mailclientcourseproject.Model.Mail;
-
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.shinkevich.mailclientcourseproject.R;
 import com.shinkevich.mailclientcourseproject.ViewModel.ShowMailsListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
-
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.Single;
 
 public class ShowMailsListActivity extends AppCompatActivity implements ItemsNumberChangedListener {
     private TextView categoryTitleTV;
@@ -350,7 +343,6 @@ public class ShowMailsListActivity extends AppCompatActivity implements ItemsNum
             navView.setCheckedItem(R.id.incoming_item);
             navigationItemSelectedListener.onNavigationItemSelected(navView.getCheckedItem());
         }
-
     }
 
     @Override

@@ -3,14 +3,13 @@ package com.shinkevich.mailclientcourseproject.Model;
 import android.content.Context;
 import android.util.Log;
 
-//import com.sun.mail.gimap.GmailFolder;
-//import com.sun.mail.gimap.GmailMessage;
 import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -21,7 +20,7 @@ import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
-import javax.mail.PasswordAuthentication;;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.UIDFolder;
@@ -73,63 +72,49 @@ public class MailServerConnector {
         mailRuSmtpProperties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
     }
 
-    public List<Mail> getIncomingMails() {
+    public List<Mail> getMails(MailType mailType) {
         MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
         switch (mailService) {
             case GMAIL:
-                return getMessagesFromFolder("INBOX");
+                return getGmailMails(mailType);
             default:
                 return null;
         }
     }
 
-    public List<Mail> getSentMails() {
-        MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
-        switch (mailService) {
-            case GMAIL:
-                return getMessagesFromFolder("[Gmail]/Отправленные");
+    private List<Mail> getGmailMails(MailType mailType) {
+
+        switch (mailType) {
+            case  INCOMING:
+            case SENT:
+            case DRAFT:
+            case SPAM :
+                return getMessagesFromFolder(getFolderByMailType(mailType)).stream().map(mail -> {
+                    mail.setMailType(mailType);
+                    return mail;
+                }).collect(Collectors.toList());
             default:
-                return null;
+                return new ArrayList<>();
         }
     }
 
-    public List<Mail> getDrafts() {
-        MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
-        switch (mailService) {
-            case GMAIL:
-                return getMessagesFromFolder("[Gmail]/Черновики");
-            default:
-                return null;
-        }
-    }
-
-    /*public List<Mail> getFavouriteMails() {
-        MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
-        switch (mailService) {
-            case GMAIL:
-                return getMessagesFromFolder("[Gmail]/Помеченные");
-            default:
-                return null;
-        }
-    }*/
-
-    public List<Mail> getSpam() {
-        MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
-        switch (mailService) {
-            case GMAIL:
-                return getMessagesFromFolder("[Gmail]/Спам");
-            default:
-                return null;
-        }
-    }
-
-    /*public List<Mail> getTrash() {
-        return getMessagesFromFolder("[Gmail]/Корзина");
-    }
-
-    public List<Mail> getUnseen() {
-        return null;
-    }*/
+//    public List<Mail> getFavouriteMails() {
+//        MailServiceEnum mailService = accountManager.getActiveUser().getMailService();
+//        switch (mailService) {
+//            case GMAIL:
+//                return getMessagesFromFolder("[Gmail]/Помеченные");
+//            default:
+//                return null;
+//        }
+//    }
+//
+//    public List<Mail> getTrash() {
+//        return getMessagesFromFolder("[Gmail]/Корзина");
+//    }
+//
+//    public List<Mail> getUnseen() {
+//        return null;
+//    }
 
     private Properties getImapProperties(MailServiceEnum mailService) {
         switch (mailService) {
@@ -171,6 +156,7 @@ public class MailServerConnector {
             for (int i = 0; i < messages.length; i++) {
                 Message message = messages[i];
                 nextMail = new Mail();
+                nextMail.setMailID(((MimeMessage)message).getMessageID());
                 nextMail.setMessageUID(uidFolder.getUID(message));
                 if (message.getFrom().length != 0) {
                     nextMail.setAuthorEmail(((InternetAddress) message.getFrom()[0]).getAddress());
@@ -293,17 +279,17 @@ public class MailServerConnector {
             UIDFolder uidFolder = (UIDFolder) emailFolder;
             long draftUID = uidFolder.getUID(addedDraft);
 
-            DraftInfo draftInfo = new DraftInfo(draftUID, addedDraft);
+            DraftInfo draftInfo = new DraftInfo(draftUID, addedDraft, ((MimeMessage)addedDraft).getMessageID());
             emailFolder.close(false);
             emailStore.close();
 
             return draftInfo;
         } catch (NoSuchProviderException e) {
             Log.i("", Log.getStackTraceString(e));
-            return new DraftInfo(-1, null);
+            return new DraftInfo(-1, null, null);
         } catch (MessagingException e) {
             Log.i("", Log.getStackTraceString(e));
-            return new DraftInfo(-1, null);
+            return new DraftInfo(-1, null, null);
         }
     }
 
@@ -498,11 +484,15 @@ public class MailServerConnector {
     class DraftInfo {
         private long draftUid;
         private Mail draftMail;
+        private String draftId;
 
-        public DraftInfo(long draftUid, Message draftMessage) {
+        public DraftInfo(long draftUid, Message draftMessage, String draftId) {
             this.draftUid = draftUid;
+            this.draftId = draftId;
             try {
                 this.draftMail = getMailFromMessage(draftMessage, draftUid);
+                this.draftMail.setMailID(draftId);
+                this.draftMail.setMailType(MailType.DRAFT);
             } catch (Exception e) {
                 e.printStackTrace();
                 this.draftMail = new Mail();

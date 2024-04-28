@@ -167,7 +167,7 @@ public class ShowMailsListViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Mail>> getIncomingMails() {
-        repository.getIncomingMails()
+        repository.getMails(MailType.INCOMING)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mailsList -> {
                     incomingMailsLiveData.setValue(mailsList);
@@ -176,7 +176,7 @@ public class ShowMailsListViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Mail>> getSentMails() {
-        repository.getSentMails()
+        repository.getMails(MailType.SENT)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mailsList -> {
                     sentMailsLiveData.setValue(mailsList);
@@ -185,7 +185,7 @@ public class ShowMailsListViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Mail>> getDrafts() {
-        repository.getDrafts()
+        repository.getMails(MailType.DRAFT)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mailsList -> {
                     draftsMailsLiveData.setValue(mailsList);
@@ -212,7 +212,7 @@ public class ShowMailsListViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Mail>> getSpam() {
-        repository.getSpam()
+        repository.getMails(MailType.SPAM)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mailsList -> {
                     spamMailsLiveData.setValue(mailsList);
