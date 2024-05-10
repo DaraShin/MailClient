@@ -301,12 +301,6 @@ public class MailServerConnector {
             IMAPStore emailStore = (IMAPStore) emailSession.getStore(imapMailStoreType);
             emailStore.connect(user.getEmail(), user.getPassword());
 
-            if (emailStore.hasCapability("UIDPLUS")) {
-                System.out.println("Server supports UIDPLUS");
-            } else {
-                System.out.println("Server does not support UIDPLUS");
-            }
-
             Folder emailFolder = emailStore.getFolder("[Gmail]/Черновики");
             UIDFolder uidFolder = (UIDFolder)emailFolder;
             emailFolder.open(Folder.READ_WRITE);

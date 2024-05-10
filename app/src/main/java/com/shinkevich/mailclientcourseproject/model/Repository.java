@@ -125,10 +125,7 @@ public class Repository {
     }
 
     public Completable saveDraft(Mail mail) {
-        System.out.println("---- uid: " + mail.getMessageUID());
-        System.out.println("---- id: " + mail.getMailID());
         return Completable.fromCallable(() -> {
-            System.out.println("------- in new");
             // save new draft
             MailServerConnector.DraftInfo draftInfo = mailServerConnector.saveDraft(mail);
             Mail draftMail = draftInfo.getDraftMail();
@@ -141,7 +138,6 @@ public class Repository {
                 mailDao.insertMail(draft);
             }
             if (!mailDao.getMailByPK(mail.getMailID(), MailType.DRAFT).isEmpty()) {
-                System.out.println("!!!!!!!!!! delete caled");
                 deleteMail(mail).blockingSubscribe();
             }
             return Completable.complete();
