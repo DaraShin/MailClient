@@ -126,38 +126,23 @@ public class Repository {
 
     public Completable saveDraft(Mail mail) {
         System.out.println("---- uid: " + mail.getMessageUID());
+        System.out.println("---- id: " + mail.getMailID());
         return Completable.fromCallable(() -> {
-            if (mailDao.getMailByPK(mail.getMailID(), MailType.DRAFT).isEmpty()) {
-                System.out.println("------- in new");
-                // save new draft
-                MailServerConnector.DraftInfo draftInfo = mailServerConnector.saveDraft(mail);
-                Mail draftMail = draftInfo.getDraftMail();
-                if (draftInfo.getDraftMail().getMessageUID() == -1) {
-                    throw new Exception("Error while saving draft");
-                } else {
-                    // save draft locally
-                    MailEntity draft = mailToMailEntity(draftMail);
-                    draft.setMessageType(MailType.DRAFT);
-                    mailDao.insertMail(draft);
-                }
+            System.out.println("------- in new");
+            // save new draft
+            MailServerConnector.DraftInfo draftInfo = mailServerConnector.saveDraft(mail);
+            Mail draftMail = draftInfo.getDraftMail();
+            if (draftInfo.getDraftMail().getMessageUID() == -1) {
+                throw new Exception("Error while saving draft");
             } else {
-                System.out.println("------- in update");
-                // update existing draft
-                Completable.mergeArray(Completable.fromCallable(() -> {
-                            if (mailServerConnector.updateDraft(mail)) {
-                                return Completable.complete();
-                            } else {
-                                throw new Exception("Error while saving draft");
-                            }
-                        }), Completable.fromCallable(() -> {
-                            System.out.println("----- in local update before update");
-                            MailEntity draft = mailToMailEntity(mail);
-                            draft.setMessageType(MailType.DRAFT);
-                            mailDao.updateMail(draft);
-                            System.out.println("----- in local update after update");
-                            return Completable.complete();
-                        }))
-                        .subscribe();
+                // save draft locally
+                MailEntity draft = mailToMailEntity(draftMail);
+                draft.setMessageType(MailType.DRAFT);
+                mailDao.insertMail(draft);
+            }
+            if (!mailDao.getMailByPK(mail.getMailID(), MailType.DRAFT).isEmpty()) {
+                System.out.println("!!!!!!!!!! delete caled");
+                deleteMail(mail).blockingSubscribe();
             }
             return Completable.complete();
         }).subscribeOn(Schedulers.io());

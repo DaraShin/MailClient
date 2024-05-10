@@ -264,7 +264,8 @@ public class WriteMessageActivity extends AppCompatActivity {
                     if (isDraft) {
                         String dateString = CommonViewServices.baseFormatter.format(System.currentTimeMillis());
                         draft.setDate(dateString);
-                        //draft.setMessageUID(draftUid);
+                        draft.setMessageUID(draftUid);
+                        draft.setMailID(draftId);
                         draft.setMailType(MailType.DRAFT);
                     }
 
